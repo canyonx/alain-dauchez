@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+	{% include "shared/_navbar.html.twig" %}
+	<section class="section has-background-dark has-text-light">
+		<div class="container has-text-centered">
+			<div
+				class="is-flex is-justify-content-center ">
+				<!-- 360 Photo -->
+				<div class="px-4" id="360view">
+					<div class="cloudimage-360" data-magnifier="3" data-folder="{{ asset('/img/danse/')}}" data-filename="danse-{index}.jpg" data-amount="26" width="360" height="640"></div>
+				</div>
+
+			</div>
+			<h1 class="title has-text-light pt-6">Titre</h1>
+			<hr>
+			<div class="is-max-desktop">
+				<p class="py-6 is-size-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate debitis ducimus eius explicabo. Soluta consectetur explicabo, omnis hic tenetur voluptas, ab ratione fuga maxime animi commodi deleniti incidunt id, dolores optio. Soluta, voluptatibus voluptatum! Est minus consectetur asperiores sed quia, totam soluta. Maiores, est veritatis. Tempore iste rerum voluptates laborum?</p>
+			</div>
+			<hr>
+		</div>
+	</section>
+
+{% endblock %}

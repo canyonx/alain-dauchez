@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!
+{% endblock %}
+
+{% block body %}
+	<section class="hero is-fullheight is-dark">
+		<div class="hero-head">
+			{% include "shared/_navbar.html.twig" %}
+		</div>
+		<div class="hero-body">
+			<div class="container">
+				<div class="columns is-vcentered">
+					<div class="column is-4 is-offset-4">
+
+						{% for rubrique, messages in app.flashes %}
+							<div class="notification is-{{ rubrique }}">
+								{% for message in messages %}
+									<p>{{ message }}</p>
+								{% endfor %}
+							</div>
+						{% endfor %}
+
+						<div class="box" style="background: rgba(255, 255, 255, 0.7)">
+							<div class="section has-text-centered">
+								<img src="{{ asset('img/logo.png') }}" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+							</div>
+
+							{{ form_start(formView) }}
+							<div class="field">
+								<div class="control">
+									{{ form_row(formView.email) }}
+								</div>
+							</div>
+							<div class="field ">
+								<div class="control">
+									{{ form_row(formView.password) }}
+
+								</div>
+							</div>
+							<div class="field is-grouped">
+								<div class="control">
+									<button class="button is-link">Se connecter</button>
+								</div>
+							</div>
+							{{ form_end(formView) }}
+
+						</div>
+						<p class="has-text-centered">
+							<a href="">Mot de passe oublié</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}
