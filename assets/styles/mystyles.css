@@ -1,0 +1,34 @@
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  font-family: "Noto Serif", "Helvetica Neue", sans-serif;
+}
+.hero.is-dark {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://images.unsplash.com/photo-1590880795696-20c7dfadacde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya3Nob3AlMjB3b29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60")
+      no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.hero .nav,
+.hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.hero .subtitle {
+  padding: 3rem 0;
+  line-height: 1.5;
+}
+
+/*** hero curve css***/
+.hero-curve {
+  display: block;
+  box-sizing: border-box;
+  height: 500px;
+  background-color: hsl(0, 0%, 21%);
+  clip-path: ellipse(75% 100% at 65% 0%);
+}

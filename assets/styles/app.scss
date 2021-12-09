@@ -1,7 +1,8 @@
-@import "./css/bootstrap.min.css";
-@import "./css/fontawesome-all.min.css";
-@import "./css/styles.css";
-@import "./css/swiper.css";
-//@import "../webfonts/fa-brands-400.eot";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
 
+$family-sans-serif: "Noto Serif", "Helvetica Neue", sans-serif;
+
+@import "./mystyles.css";
+@import "../../node_modules/bulma/bulma.sass";
+@import "../font-awesome/scss/font-awesome.scss";
 //@import "~bootstrap/scss/bootstrap";
