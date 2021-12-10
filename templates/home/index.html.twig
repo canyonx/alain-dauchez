@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+	{% include "shared/_header.html.twig" %}
+	<section id="last" class="section has-background-dark has-text-light" style="max-height:100vh">
+		<div class="container">
+			<h1 class="title has-text-light">Derniers travaux</h1>
+			<div class="columns is-multiline">
+
+				{% for i in 1..3 %}
+					<div class="column is-4">
+						{% include "shared/_card.html.twig" %}
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</section>
+
+	<section id="a_propos" class="section has-background-dark has-text-light is-flex is-align-items-center" style="min-height:100vh">
+		<div class="container has-text-centered">
+			<div class="columns is-vcentered">
+				<div class="column is-5">
+					<figure class="image is-1by1">
+						<img class="is-rounded card p-2" src="https://picsum.photos/800/600/?random" alt="Description">
+					</figure>
+				</div>
+				<div class="column is-6 is-offset-1">
+					<h1 class="title has-text-light">
+						Alain Dauchez
+					</h1>
+					<hr>
+					<p class="has-text-centered">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, aperiam aut ullam aspernatur laboriosam quam, quidem cum vel sint, rerum soluta voluptatibus odio non molestiae harum ipsum eos ipsa assumenda quod dolor ex. Omnis blanditiis cupiditate earum repudiandae quasi aperiam?
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
