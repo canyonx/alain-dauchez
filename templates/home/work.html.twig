@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+
+	{% include "shared/_navbar.html.twig" %}
+
+	<section id="last" class="section has-text-light" style="min-height:100vh">
+		<div class="container">
+			<h1 class="title has-text-light">Derniers travaux</h1>
+			<div class="columns is-multiline">
+
+				{% for i in 1..9 %}
+					<div class="column is-4">
+						{% include "shared/_card.html.twig" %}
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

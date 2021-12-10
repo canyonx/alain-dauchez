@@ -28,4 +28,14 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    /**
+     * @Route("/realisations", name="work")
+     */
+    public function work(PeintureRepository $peintureRepository)
+    {
+        return $this->render('home/work.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 }

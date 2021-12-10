@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 html {
   scroll-behavior: smooth;
 }
-=======
->>>>>>> 9ca642cc85b0db97b3a9f72fd3dc09ce21e863a9
 html,
 body {
   font-family: "Noto Serif", "Helvetica Neue", sans-serif;
@@ -26,7 +23,6 @@ body {
   padding: 3rem 0;
   line-height: 1.5;
 }
-<<<<<<< HEAD
 
 /*** hero curve css***/
 .hero-curve {
@@ -36,5 +32,3 @@ body {
   background-color: hsl(0, 0%, 21%);
   clip-path: ellipse(75% 100% at 65% 0%);
 }
-=======
->>>>>>> 9ca642cc85b0db97b3a9f72fd3dc09ce21e863a9
