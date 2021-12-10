@@ -10,20 +10,37 @@
 		</div>
 	</section>
 	<section class="section has-text-light">
-		<div class="container has-text-centered">
+		<div class="container">
+
 			<div
 				class="is-flex is-justify-content-center ">
 				<!-- 360 Photo -->
 				<div class="px-4" id="360view">
 					<div class="cloudimage-360" data-magnifier="3" data-folder="{{ asset('/img/danse/')}}" data-filename="danse-{index}.jpg" data-amount="26"></div>
 				</div>
+			</div>
 
+			<div class="has-text-centered">
+				<h1 class="title has-text-light pt-6">{{ w.nom }}</h1>
+				<hr>
+				<div class="is-max-desktop">
+					<p class="py-6 is-size-5">{{ w.description}}</p>
+				</div>
 			</div>
-			<h1 class="title has-text-light pt-6">Titre</h1>
-			<hr>
-			<div class="is-max-desktop">
-				<p class="py-6 is-size-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate debitis ducimus eius explicabo. Soluta consectetur explicabo, omnis hic tenetur voluptas, ab ratione fuga maxime animi commodi deleniti incidunt id, dolores optio. Soluta, voluptatibus voluptatum! Est minus consectetur asperiores sed quia, totam soluta. Maiores, est veritatis. Tempore iste rerum voluptates laborum?</p>
+
+			<div class="is-max-desktop columns">
+				<div class="column is-2">
+					<p class="is-size-6">Hauteur :
+						{{ w.hauteur}}</p>
+					<p class="is-size-6">Largeur :
+						{{ w.largeur}}</p>
+					{% if w.enVente == true %}
+						<p class="is-size-6">Tarif :
+							{{ w.prix}}</p>
+					{% endif %}
+				</div>
 			</div>
+
 		</div>
 	</section>
 

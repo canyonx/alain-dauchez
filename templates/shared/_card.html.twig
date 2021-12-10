@@ -2,12 +2,12 @@
 	<div id="wrapper">
 		<div class="card-image">
 			<figure class="image">
-				<img src="{{ asset('img/danse/danse-1.jpg') }}" alt="Placeholder image">
+				<img src="{{ asset(w.file ~ w.nom | lower ~ '-1.jpg') }}" alt="Placeholder image">
 			</figure>
 		</div>
 
 	</div>
 	<footer class="card-content has-text-centered has-background-light">
-		<a href="{{ path('show', {'id':1}) }}" class="button is-gost">Explorer</a>
+		<a href="{{ path('show', {'slug': w.slug}) }}" class="button is-gost">Explorer</a>
 	</footer>
 </div>
