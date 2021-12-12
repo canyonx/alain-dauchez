@@ -17,14 +17,12 @@ class LoginType extends AbstractType
                 'label' => 'Email',
                 'attr' => [
                     'class' => 'input',
-                    'placeholder' => 'test@blog.fr'
                 ]
             ])
             ->add('password', PasswordType::class, [
                 'label' => 'Mot de passe',
                 'attr' => [
                     'class' => 'input',
-                    'placeholder' => '********'
                 ]
             ]);
     }

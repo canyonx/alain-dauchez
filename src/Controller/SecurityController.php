@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\LoginType;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,6 +11,13 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+    protected $auteur;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->auteur = $userRepository->getAuteur();
+    }
+
     /**
      * @Route("/login", name="security_login")
      */
@@ -19,7 +27,8 @@ class SecurityController extends AbstractController
 
         return $this->render('security/login.html.twig', [
             'formView' => $form->createView(),
-            'error' => $utils->getLastAuthenticationError()
+            'error' => $utils->getLastAuthenticationError(),
+            'auteur' => $this->auteur
         ]);
     }
 

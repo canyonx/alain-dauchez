@@ -66,7 +66,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     */
 
     /**
-     * On récupère l'auteur du site 
+     * On récupère l'auteur du site
      */
     public function getAuteur(): ?User
     {
