@@ -13,14 +13,13 @@
 		<div class="container">
 
 			<div
-				class="is-flex is-justify-content-center ">
+				class="is-flex is-justify-content-center">
 				<!-- 360 Photo -->
-				<div class="px-4" id="360view">
-					<div class="cloudimage-360" data-magnifier="3" data-folder="{{ asset('/img/danse/')}}" data-filename="danse-{index}.jpg" data-amount="26"></div>
-				</div>
+				<div class="cloudimage-360" data-folder="{{ asset(w.file)}}" data-filename="{{ w.nom | lower}}-{index}.jpg" data-amount="{{ nbimages }}" style="max-width: 42%; "></div>
+
 			</div>
 
-			<div class="has-text-centered">
+			<div class=" has-text-centered">
 				<h1 class="title has-text-light pt-6">{{ w.nom }}</h1>
 				<hr>
 				<div class="is-max-desktop">

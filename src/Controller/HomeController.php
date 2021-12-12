@@ -12,14 +12,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+    protected $auteur;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->auteur = $userRepository->getAuteur();
+    }
+
     /**
      * @Route("/", name="home")
      */
-    public function index(PeintureRepository $peintureRepository, UserRepository $userRepository): Response
+    public function index(PeintureRepository $peintureRepository): Response
     {
         return $this->render('home/home.html.twig', [
             'work' => $peintureRepository->findBy([], [], 3),
-            'auteur' => $userRepository->findOneBy(['prenom' => 'Alain'])
+            'auteur' => $this->auteur
         ]);
     }
 
@@ -28,8 +35,12 @@ class HomeController extends AbstractController
      */
     public function show(string $slug, PeintureRepository $peintureRepository)
     {
+        $sculpture = $peintureRepository->findOneBy(['slug' => $slug]);
+
         return $this->render('home/show.html.twig', [
-            'w' => $peintureRepository->findOneBy(['slug' => $slug]),
+            'w' => $sculpture,
+            'nbimages' => count(glob(getcwd() . $sculpture->getFile() . "*.jpg")),
+            'auteur' => $this->auteur
         ]);
     }
 
@@ -47,7 +58,8 @@ class HomeController extends AbstractController
         );
 
         return $this->render('home/work.html.twig', [
-            'work' => $work
+            'work' => $work,
+            'auteur' => $this->auteur
         ]);
     }
 }

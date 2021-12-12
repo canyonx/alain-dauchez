@@ -64,4 +64,16 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+
+    /**
+     * On récupère l'auteur du site 
+     */
+    public function getAuteur(): ?User
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.roles LIKE :roles')
+            ->setParameter('roles', '%"ROLE_AUTEUR"%')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

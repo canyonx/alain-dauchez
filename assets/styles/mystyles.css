@@ -32,3 +32,9 @@ body {
   background-color: hsl(0, 0%, 21%);
   clip-path: ellipse(75% 100% at 65% 0%);
 }
+
+/** hover on brand **/
+.navbar.is-black .navbar-brand > a.navbar-item:hover {
+  background-color: transparent;
+  border-bottom: whitesmoke 2px;
+}

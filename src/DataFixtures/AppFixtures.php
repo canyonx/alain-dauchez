@@ -48,9 +48,10 @@ class AppFixtures extends Fixture
         $manager->persist($categorie);
 
 
-        for ($i = 0; $i < 12; $i++) {
+        $names = ['Danse', 'Peuplier', 'Ebene', 'Presences', 'Origineduplaisir', 'Spirale'];
+        for ($i = 0; $i < 6; $i++) {
             $sculpture = new Peinture();
-            $sculpture->setNom('Danse')
+            $sculpture->setNom($names[$i])
                 ->setUser($admin)
                 ->setSlug(strtolower($this->slugger->slug($sculpture->getNom())))
                 ->setFile('/img/' . strtolower($sculpture->getNom()) . '/')

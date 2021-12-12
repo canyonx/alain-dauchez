@@ -67,6 +67,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $blogposts;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $avatar;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $sousTitre;
+
     public function __construct()
     {
         $this->peintures = new ArrayCollection();
@@ -266,6 +276,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $blogpost->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getSousTitre(): ?string
+    {
+        return $this->sousTitre;
+    }
+
+    public function setSousTitre(string $sousTitre): self
+    {
+        $this->sousTitre = $sousTitre;
 
         return $this;
     }

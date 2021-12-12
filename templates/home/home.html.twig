@@ -25,7 +25,7 @@
 			<div class="columns is-vcentered">
 				<div class="column is-5">
 					<figure class="image is-1by1">
-						<img class="is-rounded card p-2" src="https://picsum.photos/800/600/?random" alt="Description">
+						<img class="is-rounded card p-2" src="{{ asset('img/avatar/' ~ auteur.avatar) }}" alt="Photo de {{ auteur.prenom }} {{ auteur.nom }}">
 					</figure>
 				</div>
 				<div class="column is-6 is-offset-1">
@@ -35,13 +35,13 @@
 					</h1>
 					<hr>
 					<p class="has-text-centered">
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, aperiam aut ullam aspernatur laboriosam quam, quidem cum vel sint, rerum soluta voluptatibus odio non molestiae harum ipsum eos ipsa assumenda quod dolor ex. Omnis blanditiis cupiditate earum repudiandae quasi aperiam?
+						{{ auteur.aPropos }}
 					</p>
 					<p class="pt-6 has-text-centered">Contact :
 						<br>
-						<span class="mt-2 tag is-light is-medium">dauchez.alain@gmail.com</span>
+						<span class="mt-2 tag is-light is-medium">{{ auteur.email }}</span>
 						<br>
-						<span class="mt-2 tag is-light is-medium">07 61 92 37 82</span>
+						<span class="mt-2 tag is-light is-medium">{{ auteur.telephone }}</span>
 					</p>
 				</div>
 			</div>

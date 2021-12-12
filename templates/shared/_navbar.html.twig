@@ -3,7 +3,8 @@
 		<div class="navbar-brand">
 			<a class="navbar-item" href="{{ path('home') }}">
 				<img class="pr-2" src="{{ asset('img/logo_blanc.png') }}" alt="Logo">
-				<span>Alain Dauchez</span>
+				<span>{{ auteur.prenom }}
+					{{ auteur.nom }}</span>
 			</a>
 			<span class="navbar-burger burger" data-target="navbarMenu">
 				<span></span>
