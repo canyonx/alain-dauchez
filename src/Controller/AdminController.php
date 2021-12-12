@@ -46,16 +46,26 @@ class AdminController extends AbstractController
                 ->setTelephone($form['telephone']->getData())
                 ->setAPropos($form['aPropos']->getData());
 
-            // on récupère le fichier image
+            // on récupère le fichier avatar
             if ($form['avatar']->getData()) {
                 $file = $form['avatar']->getData();
                 // suppression ancien avatar
-                unlink($this->getParameter('upload_directory') . '/avatar/' . $user->getAvatar());
+                @unlink($this->getParameter('upload_directory') . '/avatar/' . $user->getAvatar());
                 // Nouveau nom
                 $fileName = uniqid("avatar-") . '.' . $file->guessExtension();
-
                 $file->move($this->getParameter('upload_directory') . '/avatar', $fileName);
                 $user->setAvatar($fileName);
+            }
+
+            // on récupère le fichier imageBg
+            if ($form['imageBg']->getData()) {
+                $file = $form['imageBg']->getData();
+                // suppression ancien avatar
+                @unlink($this->getParameter('upload_directory') . '/background/' . $user->getImageBg());
+                // Nouveau nom
+                $fileName = uniqid("imageBg-") . '.' . $file->guessExtension();
+                $file->move($this->getParameter('upload_directory') . '/background', $fileName);
+                $user->setImageBg($fileName);
             }
 
             $em->flush();

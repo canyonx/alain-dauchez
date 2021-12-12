@@ -60,6 +60,14 @@ class UserType extends AbstractType
                 'attr' => [
                     'class' => 'input',
                 ]
+            ])
+            ->add('imageBg', FileType::class, [
+                'label' => 'Arrière plan',
+                'mapped' => false,
+                'required' => false,
+                'attr' => [
+                    'class' => 'input',
+                ]
             ]);
     }
 

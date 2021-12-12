@@ -77,6 +77,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $sousTitre;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageBg;
+
     public function __construct()
     {
         $this->peintures = new ArrayCollection();
@@ -300,6 +305,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setSousTitre(string $sousTitre): self
     {
         $this->sousTitre = $sousTitre;
+
+        return $this;
+    }
+
+    public function getImageBg()
+    {
+        return $this->imageBg;
+    }
+
+    public function setImageBg($imageBg)
+    {
+        $this->imageBg = $imageBg;
 
         return $this;
     }
