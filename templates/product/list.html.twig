@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste
+{% endblock %}
+
+{% block body %}
+	{% include "shared/_navbar.html.twig" %}
+	<section class="section has-text-light container" style="min-height:100vh">
+		<h1 class="title has-text-light">Liste</h1>
+
+
+		<div class="box has-background-light">
+			<table class="table is-fullwidth has-background-light">
+				<thead>
+					<tr>
+						<th>Titre</th>
+						<th>Hauteur (cm)</th>
+						<th>Largeur (cm)</th>
+						<th>Date de création</th>
+						<th>Tarif</th>
+						<th>En vente</th>
+						<th>Modifier</th>
+						<th>Supprimer</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for p in product %}
+						<tr>
+							<td>
+								<a href="{{ path("show", {'slug': p.slug}) }}">{{ p.nom }}</a>
+							</td>
+							<td>{{ p.hauteur }}</td>
+							<td>{{ p.largeur }}</td>
+							<td>{{ p.dateRealisation | date("d/m/Y") }}</td>
+							<td>{{ p.prix | amount }}</td>
+							<td>
+								{% if p.enVente == true %}
+									OUI
+								{% else %}
+									NON
+								{% endif %}
+							</td>
+							<td>
+								<a href="{{ path("product_edit", {'id': p.id}) }}" class="button is-info">
+									<i class="fa fa-edit"></i>
+								</a>
+							</td>
+							<td>
+								<a href="#" class="button is-danger">
+									<i class="fa fa-trash"></i>
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<a class="button is-light" href="{{ path('product_create')}}">Ajouter une sculpture</a>
+			<a class="button is-light" href="{{ path('profil_edit')}}">Modifier mon profil</a>
+		</div>
+
+	</section>
+{% endblock %}

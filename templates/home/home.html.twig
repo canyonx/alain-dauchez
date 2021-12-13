@@ -34,10 +34,10 @@
 						{{ auteur.nom }}
 					</h1>
 					<hr>
-					<p class="has-text-centered">
-						{{ auteur.aPropos }}
+					<p class="has-text-left">
+						{{ auteur.aPropos | nl2br}}
 					</p>
-					<p class="pt-6 has-text-centered">Contact :
+					<p class="pt-6">Contact :
 						<br>
 						<span class="mt-2 tag is-light is-medium">{{ auteur.email }}</span>
 						<br>

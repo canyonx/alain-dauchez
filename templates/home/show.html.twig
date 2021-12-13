@@ -23,21 +23,37 @@
 				<h1 class="title has-text-light pt-6">{{ w.nom }}</h1>
 				<hr>
 				<div class="is-max-desktop">
-					<p class="py-6 is-size-5">{{ w.description}}</p>
+					<p class="py-6 is-size-5">{{ w.description | nl2br}}</p>
 				</div>
 			</div>
 
-			<div class="is-max-desktop columns">
-				<div class="column is-2">
-					<p class="is-size-6">Hauteur :
-						{{ w.hauteur}}</p>
-					<p class="is-size-6">Largeur :
-						{{ w.largeur}}</p>
-					{% if w.enVente == true %}
-						<p class="is-size-6">Tarif :
-							{{ w.prix}}</p>
-					{% endif %}
-				</div>
+			<div class="is-max-desktop box has-background-light">
+				<table class="table is-fullwidth has-background-light">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Hauteur</th>
+							<th>Largeur</th>
+							<th>Année de réalisation</th>
+							{% if w.enVente == true %}
+								<th>Tarif</th>
+							{% endif %}
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{ w.nom }}</td>
+							<td>{{ w.hauteur }}
+								cm</td>
+							<td>{{ w.largeur }}
+								cm</td>
+							<td>{{ w.dateRealisation | date("Y") }}</td>
+							{% if w.enVente == true %}
+								<td>{{ w.prix | amount }}</td>
+							{% endif %}
+						</tr>
+					</tbody>
+				</table>
 			</div>
 
 		</div>

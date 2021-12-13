@@ -11,6 +11,5 @@ import './styles/app.scss';
 // or, specify which plugins you need:
 import './js/all.js';
 
-
 // start the Stimulus application
 import './stimulus';

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste
+{% endblock %}
+
+{% block body %}
+	{% include "shared/_navbar.html.twig" %}
+	<section class="section has-text-light container" style="min-height:100vh">
+		<h1 class="title has-text-light">Nouvelle sculpture</h1>
+
+		<div class="box has-background-light">
+			{{ form_start(form)}}
+			<div class="has-text-danger">
+				{{ form_errors(form) }}
+			</div>
+			<div class="columns">
+
+
+				<div class="column">
+					<div class="field">
+						<div class="control">
+							{{ form_row(form.nom) }}
+						</div>
+					</div>
+					<div class="field">
+						<div class="control">
+							{{ form_row(form.hauteur) }}
+						</div>
+					</div>
+					<div class="field">
+						<div class="control">
+							{{ form_row(form.largeur) }}
+						</div>
+					</div>
+					<div class="field">
+						<div class="control">
+							{{ form_row(form.prix) }}
+						</div>
+					</div>
+					<div class="control">
+						<label class="checkbox">
+							{{ form_row(form.enVente) }}
+						</label>
+					</div>
+				</div>
+
+
+				<div class="column">
+					<div class="field">
+						<div class="control">
+							{{ form_row(form.dateRealisation) }}
+						</div>
+					</div>
+					<div class="field">
+						<div class="control">
+							{{ form_row(form.description) }}
+						</div>
+					</div>
+					<div class="field">
+						<div class="control">
+							{{ form_row(form.file) }}
+						</div>
+					</div>
+
+					<div class="field">
+						<div class="control">
+							<button class="button is-link" type="submit">Valider</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{ form_end(form)}}
+
+		</div>
+		<div>
+			<a class="button is-light" href="{{ path('product_list')}}">Liste des sculptures</a>
+		</div>
+
+	</section>
+{% endblock %}

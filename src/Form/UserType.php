@@ -50,7 +50,7 @@ class UserType extends AbstractType
             ->add('aPropos', TextareaType::class, [
                 'label' => 'A propos',
                 'attr' => [
-                    'class' => 'textarea',
+                    'class' => 'textarea tinymce',
                 ]
             ])
             ->add('avatar', FileType::class, [

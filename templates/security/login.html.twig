@@ -15,7 +15,7 @@
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 		<style>
-			.hero.is-dark {
+			.hero {
 				background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("{{ asset('img/background/' ~ auteur.imageBg) }}") no-repeat center center fixed;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
@@ -25,7 +25,7 @@
 		</style>
 	</head>
 	<body>
-		<section class="hero is-fullheight is-dark">
+		<section class="hero is-dark is-fullheight">
 			<div class="hero-body">
 				<div class="container">
 					<div class="columns is-vcentered">
@@ -41,7 +41,7 @@
 
 							<div class="box has-background-light">
 								<div class="section has-text-centered">
-									<img src="{{ asset('img/logo.png') }}" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+									<img src="{{ asset('img/logo/logo.png') }}" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
 								</div>
 
 								{{ form_start(formView) }}

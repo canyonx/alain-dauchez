@@ -17,6 +17,7 @@
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
+		{% block tinymce %}{% endblock %}
 		<style>
 			.hero.is-dark {
 				background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("{{ asset('img/background/' ~ auteur.imageBg) }}") no-repeat center center fixed;
