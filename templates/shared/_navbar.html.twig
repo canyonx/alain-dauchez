@@ -25,3 +25,9 @@
 		</div>
 	</div>
 </nav>
+
+{% if is_granted('ROLE_AUTEUR') %}
+	<div class="container is-flex is-justify-content-center">
+		{% include "admin/_adminbar.html.twig" %}
+	</div>
+{% endif %}

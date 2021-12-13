@@ -30,3 +30,14 @@ body {
   background-color: transparent;
   border-bottom: whitesmoke 2px;
 }
+
+/* sticky footer card */
+#wrapper-container {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+#wrapper {
+  flex: 1;
+}

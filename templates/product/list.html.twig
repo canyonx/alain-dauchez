@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste
+{% block title %}Tableau de bord
 {% endblock %}
 
 {% block body %}
 	{% include "shared/_navbar.html.twig" %}
 	<section class="section has-text-light container" style="min-height:100vh">
-		<h1 class="title has-text-light">Liste</h1>
+		<h1 class="title has-text-light">Tableau de bord</h1>
 
 
 		<div class="box has-background-light">
@@ -16,7 +16,7 @@
 						<th>Titre</th>
 						<th>Hauteur (cm)</th>
 						<th>Largeur (cm)</th>
-						<th>Date de création</th>
+						<th>Date de réalisation</th>
 						<th>Tarif</th>
 						<th>En vente</th>
 						<th>Modifier</th>
@@ -46,7 +46,7 @@
 								</a>
 							</td>
 							<td>
-								<a href="#" class="button is-danger">
+								<a href="{{ path("product_delete", {'id': p.id}) }}" class="button is-danger" onclick="return(confirm('Confirmer la suppression ?'));">
 									<i class="fa fa-trash"></i>
 								</a>
 							</td>
@@ -54,10 +54,6 @@
 					{% endfor %}
 				</tbody>
 			</table>
-		</div>
-		<div>
-			<a class="button is-light" href="{{ path('product_create')}}">Ajouter une sculpture</a>
-			<a class="button is-light" href="{{ path('profil_edit')}}">Modifier mon profil</a>
 		</div>
 
 	</section>

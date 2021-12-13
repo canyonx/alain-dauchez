@@ -25,7 +25,7 @@ class HomeController extends AbstractController
     public function index(PeintureRepository $peintureRepository): Response
     {
         return $this->render('home/home.html.twig', [
-            'work' => $peintureRepository->findBy([], [], 3),
+            'work' => $peintureRepository->findBy([], ['dateRealisation' => 'DESC'], 3),
             'auteur' => $this->auteur
         ]);
     }
@@ -39,7 +39,7 @@ class HomeController extends AbstractController
 
         return $this->render('home/show.html.twig', [
             'w' => $sculpture,
-            'nbimages' => count(glob(getcwd() . $sculpture->getFile() . "*.jpg")),
+            'nbimages' => count(glob(getcwd() . '/img/' . $sculpture->getFile() . "*.jpg")),
             'auteur' => $this->auteur
         ]);
     }
@@ -49,7 +49,7 @@ class HomeController extends AbstractController
      */
     public function work(PeintureRepository $peintureRepository, PaginatorInterface $paginator, Request $request)
     {
-        $data = $peintureRepository->findAll();
+        $data = $peintureRepository->findBy([], ['dateRealisation' => 'DESC']);
 
         $work = $paginator->paginate(
             $data,

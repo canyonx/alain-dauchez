@@ -2,7 +2,13 @@
 	<div class="content has-text-centered has-text-grey-lighter">
 		<div class="">
 			<p>- Conception Mattéo Dauchez -</p>
-			<a class="has-text-grey" href="{{ path('security_login')}}">Se connecter</a>
+			{% if is_granted('ROLE_AUTEUR') %}
+				<a class="has-text-grey" href="{{ path('product_list')}}">Tableau de bord</a>
+				|
+				<a class="has-text-grey" href="{{ path('security_logout')}}">Se deconnecter</a>
+			{% else %}
+				<a class="has-text-grey" href="{{ path('security_login')}}">Se connecter</a>
+			{% endif %}
 		</div>
 	</div>
 </footer>

@@ -1,19 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edition de profil
-{% endblock %}
-
-{% block tinymce %}
-	<script type="text/javascript">
-		tinymce.init({selector: '#user_aPropos', height: 300, menubar: false, toolbar: false});
-	</script>
+{% block title %}Modifier
+	{{ p.nom }}
 {% endblock %}
 
 {% block body %}
 	{% include "shared/_navbar.html.twig" %}
 	<section class="section has-text-light container" style="min-height:100vh">
-		<h1 class="title has-text-light">Edition de profil
-		</h1>
+		<h1 class="title has-text-light">Modifier
+			{{ p.nom }}</h1>
 
 		<div class="box has-background-light">
 			{{ form_start(form)}}
@@ -21,12 +16,9 @@
 				{{ form_errors(form) }}
 			</div>
 			<div class="columns">
+
+
 				<div class="column">
-					<div class="field">
-						<div class="control">
-							{{ form_row(form.prenom) }}
-						</div>
-					</div>
 					<div class="field">
 						<div class="control">
 							{{ form_row(form.nom) }}
@@ -34,36 +26,46 @@
 					</div>
 					<div class="field">
 						<div class="control">
-							{{ form_row(form.email) }}
+							{{ form_row(form.hauteur) }}
 						</div>
 					</div>
 					<div class="field">
 						<div class="control">
-							{{ form_row(form.telephone) }}
+							{{ form_row(form.largeur) }}
 						</div>
 					</div>
+					<div class="field">
+						<div class="control">
+							{{ form_row(form.prix) }}
+						</div>
+					</div>
+					<div class="control">
+						<label class="checkbox">
+							{{ form_row(form.enVente) }}
+						</label>
+					</div>
 				</div>
+
+
 				<div class="column">
 					<div class="field">
 						<div class="control">
-							{{ form_row(form.sousTitre) }}
+							{{ form_row(form.dateRealisation) }}
 						</div>
 					</div>
 					<div class="field">
 						<div class="control">
-							{{ form_row(form.aPropos) }}
+							{{ form_row(form.description) }}
 						</div>
 					</div>
 					<div class="field">
 						<div class="control">
-							{{ form_row(form.avatar) }}
+							{{ form_row(form.images) }}
+							<p>{{ nbimages }}
+								images</p>
 						</div>
 					</div>
-					<div class="field">
-						<div class="control">
-							{{ form_row(form.imageBg) }}
-						</div>
-					</div>
+
 					<div class="field">
 						<div class="control">
 							<button class="button is-link" type="submit">Valider</button>
@@ -72,6 +74,7 @@
 				</div>
 			</div>
 			{{ form_end(form)}}
+
 		</div>
 
 	</section>

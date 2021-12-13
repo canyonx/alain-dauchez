@@ -15,7 +15,7 @@
 			<div
 				class="is-flex is-justify-content-center">
 				<!-- 360 Photo -->
-				<div class="cloudimage-360" data-folder="{{ asset(w.file)}}" data-filename="{{ w.nom | lower}}-{index}.jpg" data-amount="{{ nbimages }}" style="max-width: 42%; "></div>
+				<div class="cloudimage-360" data-folder="{{ asset('img/' ~ w.file) }}" data-filename="{{ w.nom | lower}}-{index}.jpg" data-amount="{{ nbimages }}" style="max-width: 42%; "></div>
 
 			</div>
 

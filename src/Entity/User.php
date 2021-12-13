@@ -68,12 +68,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $blogposts;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $avatar;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $sousTitre;
 

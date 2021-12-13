@@ -90,10 +90,16 @@ class Peinture
      */
     private $commentaires;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="peinture", orphanRemoval=true)
+     */
+    private $images;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -293,6 +299,36 @@ class Peinture
             // set the owning side to null (unless already changed)
             if ($commentaire->getPeinture() === $this) {
                 $commentaire->setPeinture(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setPeinture($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getPeinture() === $this) {
+                $image->setPeinture(null);
             }
         }
 

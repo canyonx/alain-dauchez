@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste
+{% block title %}Ajouter une sculpture
 {% endblock %}
 
 {% block body %}
 	{% include "shared/_navbar.html.twig" %}
 	<section class="section has-text-light container" style="min-height:100vh">
-		<h1 class="title has-text-light">Nouvelle sculpture</h1>
+		<h1 class="title has-text-light">Ajouter une sculpture</h1>
 
 		<div class="box has-background-light">
 			{{ form_start(form)}}
@@ -58,7 +58,7 @@
 					</div>
 					<div class="field">
 						<div class="control">
-							{{ form_row(form.file) }}
+							{{ form_row(form.images) }}
 						</div>
 					</div>
 
@@ -71,9 +71,35 @@
 			</div>
 			{{ form_end(form)}}
 
-		</div>
-		<div>
-			<a class="button is-light" href="{{ path('product_list')}}">Liste des sculptures</a>
+			<div class="message is-info">
+				<div class="message-header">
+					<p>Lien entre le Nom et les images</p>
+				</div>
+				<div class="message-body">
+					<p>
+						{index} représente un nombre (1, 2, 3...)
+						<br>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Nom</th>
+									<th>Image n°{index}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Exemple</td>
+									<td>exemple-{index}.jpg</td>
+								</tr>
+							</tbody>
+						</table>
+						Si ma sculpture est Bob la première image est bob-1.jpg
+						<br><br>
+						Vous pourrez ajouter d'autres images via la fonction modifier du tableau de bord
+					</p>
+				</div>
+			</div>
+
 		</div>
 
 	</section>
