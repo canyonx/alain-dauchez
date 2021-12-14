@@ -40,7 +40,6 @@ class PasswordController extends AbstractController
             $hash = $encoder->hashPassword($user, $password);
             // Enregistre new password dans bdd
             $user->setPassword($hash);
-            //$em->persist($user);
             $em->flush();
 
             return $this->redirectToRoute('security_login', [
