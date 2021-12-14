@@ -24,11 +24,13 @@ class ProductController extends AbstractController
         $this->auteur = $userRepository->getAuteur();
     }
 
+
     /**
      * @Route("/admin", name="product_list")
      */
-    public function list(PeintureRepository $peintureRepository): Response
-    {
+    public function list(
+        PeintureRepository $peintureRepository
+    ) {
         $product = $peintureRepository->findBy([], ['dateRealisation' => 'DESC']);
 
         return $this->render('product/list.html.twig', [
@@ -37,17 +39,20 @@ class ProductController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/admin/product/create", name="product_create")
      */
-    public function create(Request $request, SluggerInterface $slugger, EntityManagerInterface $em): Response
-    {
+    public function create(
+        Request $request,
+        SluggerInterface $slugger,
+        EntityManagerInterface $em
+    ) {
         $product = new Peinture();
         $form = $this->createForm(PeintureType::class, $product);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
             $product->setNom($form['nom']->getData())
                 ->setHauteur($form['hauteur']->getData())
                 ->setLargeur($form['largeur']->getData())
@@ -63,7 +68,6 @@ class ProductController extends AbstractController
 
             // si il y a des images transmises
             if ($form['images']->getData()) {
-
                 //on crée le dossier
                 //@mkdir(getcwd().$product)
                 // On récupère les images transmises
@@ -111,11 +115,17 @@ class ProductController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/admin/product/edit/{id}", name="product_edit")
      */
-    public function edit(int $id, Request $request, PeintureRepository $peintureRepository, EntityManagerInterface $em, SluggerInterface $slugger): Response
-    {
+    public function edit(
+        int $id,
+        Request $request,
+        PeintureRepository $peintureRepository,
+        EntityManagerInterface $em,
+        SluggerInterface $slugger
+    ) {
         $product = $peintureRepository->findOneBy(['id' => $id]);
         $form = $this->createForm(PeintureType::class, $product);
 
@@ -135,7 +145,6 @@ class ProductController extends AbstractController
 
             // si il y a des images transmises
             if ($form['images']->getData()) {
-
                 //on crée le dossier
                 //@mkdir(getcwd().$product)
                 // On récupère les images transmises
@@ -185,16 +194,19 @@ class ProductController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/admin/product/delete/{id}", name="product_delete")
      */
-    public function delete(int $id, PeintureRepository $peintureRepository, EntityManagerInterface $em): Response
-    {
+    public function delete(
+        int $id,
+        PeintureRepository $peintureRepository,
+        EntityManagerInterface $em
+    ) {
         $product = $peintureRepository->findOneBy(['id' => $id]);
 
         // On Supprime un produit dans la bdd
         if ($product) {
-
             // supprime les images
             array_map('unlink', glob($this->getParameter('upload_directory') . $product->getFile() . '*.jpg'));
             // supprime le dossier

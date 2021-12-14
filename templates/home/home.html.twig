@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
+{% block title %}
+	Sculptures
 {% endblock %}
 
 {% block body %}
 	{% include "shared/_header.html.twig" %}
-	<section id="last" class="section has-text-light" style="min-height:100vh">
+	<section id="last_work" class="section has-text-light is-flex is-align-items-center is-justify-content-center" style="min-height:100vh">
 		<div class="container">
 			<h1 class="title has-text-light">Derniers travaux</h1>
 			<div class="columns is-multiline">
@@ -16,6 +17,11 @@
 					</div>
 				{% endfor %}
 
+			</div>
+			<div class="has-text-centered">
+				<a class="button is-white is-outlined" href="{{ path('work') }}">
+					<span>Toutes les réalisations...</span>
+				</a>
 			</div>
 		</div>
 	</section>
@@ -30,18 +36,17 @@
 				</div>
 				<div class="column is-6 is-offset-1">
 					<h1 class="title has-text-light">
-						{{ auteur.prenom }}
-						{{ auteur.nom }}
+						A propos de l'artiste
 					</h1>
 					<hr>
 					<p class="has-text-left">
 						{{ auteur.aPropos | nl2br}}
 					</p>
-					<p class="pt-6">Contact :
+					<p class="pt-6">Contact
 						<br>
-						<span class="mt-2 tag is-light is-medium">{{ auteur.email }}</span>
+						<button class="button mt-2" onclick="innerHTML = '{{ auteur.email }}'">Email</button>
 						<br>
-						<span class="mt-2 tag is-light is-medium">{{ auteur.telephone }}</span>
+						<button class="button mt-2" onclick="innerHTML = '{{ auteur.telephone }}'">Téléphone</button>
 					</p>
 				</div>
 			</div>
