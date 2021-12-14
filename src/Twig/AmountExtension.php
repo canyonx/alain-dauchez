@@ -10,7 +10,7 @@ class AmountExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            // on crée un filtre qui s'appelle amount , qui nous retourne la fonction dans cette classe qui porte le nom amount
+            // on crée un filtre amount, retourne la fonction dans cette classe qui porte le nom amount
             new TwigFilter('amount', [$this, 'amount'])
         ];
     }

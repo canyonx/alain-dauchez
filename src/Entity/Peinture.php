@@ -6,6 +6,7 @@ use App\Repository\PeintureRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PeintureRepository::class)
@@ -21,16 +22,30 @@ class Peinture
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *      message="Le nom ne peut pas être nul"
+     * )
+     * @Assert\Unique(
+     *      message="Ce nom existe déjà"
+     * )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="{{ value }} n'est pas un nombre valide"
+     * )
      */
     private $largeur;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="{{ value }} n'est pas un nombre valide"
+     * )
      */
     private $hauteur;
 
@@ -41,6 +56,10 @@ class Peinture
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="{{ value }} n'est pas un nombre valide"
+     * )
      */
     private $prix;
 
@@ -56,6 +75,9 @@ class Peinture
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(
+     *      message="La description ne peut pas être nulle"
+     * )
      */
     private $description;
 

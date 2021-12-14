@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Upload;
+use App\Form\NewPasswordType;
 use App\Form\UploadType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -24,10 +25,13 @@ class ProfilController extends AbstractController
     /**
      * @Route("/admin/profil/edit", name="profil_edit")
      */
-    public function edit(UserRepository $userRepository, Request $request, EntityManagerInterface $em)
-    {
+    public function edit(
+        UserRepository $userRepository,
+        Request $request,
+        EntityManagerInterface $em
+    ) {
 
-        $user = $userRepository->getAuteur();
+        $user = $this->auteur;
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
