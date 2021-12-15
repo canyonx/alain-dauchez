@@ -7,7 +7,7 @@
 
 	{% include "shared/_navbar.html.twig" %}
 
-	<section id="last" class="section has-text-light" style="min-height:100vh">
+	<section id="last" class="section" style="min-height:100vh">
 		<div class="container has-text-centered">
 			<h1 class="title has-text-light">Réalisations</h1>
 			<div class="columns is-multiline is-tablet">
@@ -20,12 +20,14 @@
 
 			</div>
 		</div>
+
+		<div class="is-flex is-justify-content-center mt-6 has-text-light">
+			{{ knp_pagination_render(work, 'shared/_pagination.html.twig') }}
+		</div>
+
 	</section>
 
-	<div class="is-flex is-justify-content-center has-text-light">
 
-		{{ knp_pagination_render(work, 'shared/_pagination.html.twig') }}
-	</div>
 	{# {% include "shared/_pagination.html.twig" %} #}
 
 {% endblock %}

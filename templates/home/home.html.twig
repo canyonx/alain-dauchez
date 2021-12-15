@@ -6,10 +6,10 @@
 
 {% block body %}
 	{% include "shared/_header.html.twig" %}
-	<section id="last_work" class="section has-text-light is-flex is-align-items-center is-justify-content-center" style="min-height:100vh">
+	<section id="last_work" class="section" style="min-height:100vh">
 		<div class="container">
 			<h1 class="title has-text-light">Derniers travaux</h1>
-			<div class="columns is-multiline is-tablet">
+			<div class="columns is-multiline">
 
 				{% for w in work %}
 					<div class="column is-4">
@@ -26,9 +26,9 @@
 		</div>
 	</section>
 
-	<section id="a_propos" class="section has-text-light is-flex is-align-items-center" style="min-height:100vh">
-		<div class="container has-text-centered">
-			<div class="columns is-vcentered is-tablet">
+	<section id="a_propos" class="section" style="min-height:100vh">
+		<div class="container">
+			<div class="columns is-vcentered">
 				<div class="column is-5">
 					<figure class="image is-1by1">
 						<img class="is-rounded card p-2" src="{{ asset('img/avatar/' ~ auteur.avatar) }}" alt="Photo de {{ auteur.prenom }} {{ auteur.nom }}">
@@ -39,10 +39,8 @@
 						A propos de l'artiste
 					</h1>
 					<hr>
-					<p class="has-text-left">
+					<p class="has-text-light">
 						{{ auteur.aPropos | nl2br}}
-					</p>
-					<p class="pt-6">Contact
 						<br>
 						<button class="button mt-2" onclick="innerHTML = '{{ auteur.email }}'">Email</button>
 						<button class="button mt-2" onclick="innerHTML = '{{ auteur.telephone }}'">Téléphone</button>

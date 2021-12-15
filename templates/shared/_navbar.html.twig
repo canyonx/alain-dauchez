@@ -13,21 +13,19 @@
 			</span>
 		</div>
 		<div id="navbarMenu" class="navbar-menu" style="background-color:transparent">
-			<div class="navbar-end is-flex is-justify-content-right">
-				<div class="tabs is-right has-text-light">
-					<span class="navbar-item">
-						<a class="button is-white is-outlined" href="{{ path('work') }}">
-							<span>Réalisations</span>
-						</a>
-					</span>
-				</div>
+			<div class="navbar-end">
+				<span class="navbar-item">
+					<a class="button is-white is-outlined" href="{{ path('work') }}">
+						<span>Réalisations</span>
+					</a>
+				</span>
 			</div>
 		</div>
 	</div>
 </nav>
 
 {% if is_granted('ROLE_AUTEUR') %}
-	<div class="container is-flex is-justify-content-center">
+	<div class="container has-text-centered">
 		{% include "admin/_adminbar.html.twig" %}
 	</div>
 {% endif %}
