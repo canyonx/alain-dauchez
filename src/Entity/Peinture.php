@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PeintureRepository::class)
+ * @UniqueEntity("nom")
  */
 class Peinture
 {
@@ -24,9 +25,6 @@ class Peinture
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(
      *      message="Le nom ne peut pas être nul"
-     * )
-     * @Assert\Unique(
-     *      message="Ce nom existe déjà"
      * )
      */
     private $nom;
