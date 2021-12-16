@@ -17,13 +17,16 @@ body {
 }
 
 /*** hero curve css***/
-.hero-curve {
-  display: block;
-  box-sizing: border-box;
-  height: 500px;
-  background-color: hsl(0, 0%, 21%);
-  clip-path: ellipse(75% 100% at 65% 0%);
+@media only screen and (min-width: 769px) {
+  .hero-curve {
+    display: block;
+    box-sizing: border-box;
+    height: 500px;
+    background-color: hsl(0, 0%, 21%);
+    clip-path: ellipse(75% 100% at 65% 0%);
+  }
 }
+
 
 /** hover on brand **/
 .navbar.is-black .navbar-brand > a.navbar-item:hover {
