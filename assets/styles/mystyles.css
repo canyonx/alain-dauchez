@@ -52,6 +52,6 @@ body {
 }
 
 .cloudimage-inner-box canvas {
-  max-height: 80vh;
+  max-height: 90vh;
   width: auto !important;
 }
