@@ -26,6 +26,11 @@
 					</div>
 					<div class="field">
 						<div class="control">
+							{{ form_row(form.matiere) }}
+						</div>
+					</div>
+					<div class="field">
+						<div class="control">
 							{{ form_row(form.hauteur) }}
 						</div>
 					</div>
@@ -36,13 +41,8 @@
 					</div>
 					<div class="field">
 						<div class="control">
-							{{ form_row(form.prix) }}
+							{{ form_row(form.profondeur) }}
 						</div>
-					</div>
-					<div class="control">
-						<label class="checkbox">
-							{{ form_row(form.enVente) }}
-						</label>
 					</div>
 				</div>
 
@@ -65,8 +65,18 @@
 								images</p>
 						</div>
 					</div>
-
 					<div class="field">
+						<div class="control">
+							{{ form_row(form.prix) }}
+						</div>
+					</div>
+					<div class="control">
+						<label class="checkbox">
+							{{ form_row(form.enVente) }}
+						</label>
+					</div>
+
+					<div class="field is-pulled-right">
 						<div class="control">
 							<button class="button is-link" type="submit">Valider</button>
 						</div>

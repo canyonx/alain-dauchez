@@ -26,8 +26,8 @@ class PeintureType extends AbstractType
                     'class' => 'input'
                 ]
             ])
-            ->add('largeur', NumberType::class, [
-                'label' => 'Largeur en cm',
+            ->add('matiere', TextType::class, [
+                'label' => 'Essence de bois',
                 'attr' => [
                     'class' => 'input'
                 ]
@@ -38,8 +38,20 @@ class PeintureType extends AbstractType
                     'class' => 'input'
                 ]
             ])
+            ->add('largeur', NumberType::class, [
+                'label' => 'Largeur en cm',
+                'attr' => [
+                    'class' => 'input'
+                ]
+            ])
+            ->add('profondeur', NumberType::class, [
+                'label' => 'Profondeur en cm',
+                'attr' => [
+                    'class' => 'input'
+                ]
+            ])
             ->add('prix', MoneyType::class, [
-                'label' => 'Tarif en ',
+                'label' => 'Prix en ',
                 'required' => false,
                 'divisor' => 100,
                 'attr' => [

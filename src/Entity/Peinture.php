@@ -116,6 +116,16 @@ class Peinture
      */
     private $images;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $matiere;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $profondeur;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -352,6 +362,30 @@ class Peinture
                 $image->setPeinture(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMatiere(): ?string
+    {
+        return $this->matiere;
+    }
+
+    public function setMatiere(?string $matiere): self
+    {
+        $this->matiere = $matiere;
+
+        return $this;
+    }
+
+    public function getProfondeur(): ?int
+    {
+        return $this->profondeur;
+    }
+
+    public function setProfondeur(?int $profondeur): self
+    {
+        $this->profondeur = $profondeur;
 
         return $this;
     }

@@ -34,20 +34,23 @@
 					<thead>
 						<tr>
 							<th>Nom</th>
-							<th>Hauteur</th>
-							<th>Largeur</th>
-							<th>Année de réalisation</th>
+							<th>Matière</th>
+							<th>H x L x P</th>
+							<th>Année</th>
 							{% if w.enVente == true %}
-								<th>Tarif</th>
+								<th>Prix</th>
 							{% endif %}
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>{{ w.nom }}</td>
+							<td>{{ w.matiere }}</td>
 							<td>{{ w.hauteur }}
-								cm</td>
-							<td>{{ w.largeur }}
+								x
+								{{ w.largeur }}
+								x
+								{{ w.profondeur }}
 								cm</td>
 							<td>{{ w.dateRealisation | date("Y") }}</td>
 							{% if w.enVente == true %}

@@ -9,15 +9,13 @@
 		<h1 class="title has-text-light">Tableau de bord</h1>
 
 
-		<div class="box has-background-light">
+		<div class="table-container box has-background-light">
 			<table class="table is-fullwidth has-background-light">
 				<thead>
 					<tr>
 						<th>Titre</th>
-						<th>Hauteur (cm)</th>
-						<th>Largeur (cm)</th>
 						<th>Date de réalisation</th>
-						<th>Tarif</th>
+						<th>Prix</th>
 						<th>En vente</th>
 						<th>Modifier</th>
 						<th>Supprimer</th>
@@ -29,8 +27,6 @@
 							<td>
 								<a href="{{ path("show", {'slug': p.slug}) }}">{{ p.nom }}</a>
 							</td>
-							<td>{{ p.hauteur }}</td>
-							<td>{{ p.largeur }}</td>
 							<td>{{ p.dateRealisation | date("d/m/Y") }}</td>
 							<td>{{ p.prix | amount }}</td>
 							<td>
