@@ -41,3 +41,14 @@ body {
 #wrapper {
   flex: 1;
 }
+
+/* cloud image height */
+.cloudimage-inner-box {
+  display: flex;
+  justify-content: center;
+}
+
+.cloudimage-inner-box canvas {
+  max-height: 80vh;
+  width: auto !important;
+}

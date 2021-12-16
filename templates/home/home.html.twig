@@ -6,7 +6,7 @@
 
 {% block body %}
 	{% include "shared/_header.html.twig" %}
-	<section id="last_work" class="section" style="min-height:100vh">
+	<section id="last_work" class="section is-flex is-align-items-center" style="min-height:100vh">
 		<div class="container">
 			<h1 class="title has-text-light">Derniers travaux</h1>
 			<div class="columns is-multiline">
@@ -26,7 +26,7 @@
 		</div>
 	</section>
 
-	<section id="a_propos" class="section" style="min-height:100vh">
+	<section id="a_propos" class="section is-flex is-align-items-center" style="min-height:100vh">
 		<div class="container">
 			<div class="columns is-vcentered">
 				<div class="column is-5">
@@ -42,8 +42,8 @@
 					<p class="has-text-light">
 						{{ auteur.aPropos | nl2br}}
 						<br>
-						<button class="button mt-2" onclick="innerHTML = '{{ auteur.email }}'">Email</button>
-						<button class="button mt-2" onclick="innerHTML = '{{ auteur.telephone }}'">Téléphone</button>
+						<span class="tag is-clickable is-medium mt-2" onclick="innerHTML = '{{ auteur.email }}'">Email</span>
+						<span class="tag is-clickable is-medium mt-2" onclick="innerHTML = '{{ auteur.telephone }}'">Téléphone</span>
 					</p>
 				</div>
 			</div>
