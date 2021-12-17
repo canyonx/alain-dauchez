@@ -27,21 +27,41 @@
 							{{ form_row(form.matiere) }}
 						</div>
 					</div>
-					<div class="field">
-						<div class="control">
-							{{ form_row(form.hauteur) }}
+
+					<div class="columns">
+						<div class="column">
+							<div class="field">
+								<div class="control">
+									{{ form_row(form.hauteur) }}
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div class="field">
+								<div class="control">
+									{{ form_row(form.largeur) }}
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div class="field">
+								<div class="control">
+									{{ form_row(form.profondeur) }}
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="field">
 						<div class="control">
-							{{ form_row(form.largeur) }}
+							{{ form_row(form.prix) }}
 						</div>
 					</div>
-					<div class="field">
-						<div class="control">
-							{{ form_row(form.profondeur) }}
-						</div>
+					<div class="control">
+						<label class="checkbox">
+							{{ form_row(form.enVente) }}
+						</label>
 					</div>
+
 				</div>
 
 
@@ -60,16 +80,6 @@
 						<div class="control">
 							{{ form_row(form.images) }}
 						</div>
-					</div>
-					<div class="field">
-						<div class="control">
-							{{ form_row(form.prix) }}
-						</div>
-					</div>
-					<div class="control">
-						<label class="checkbox">
-							{{ form_row(form.enVente) }}
-						</label>
 					</div>
 
 					<div class="field is-pulled-right">

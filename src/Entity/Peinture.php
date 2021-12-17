@@ -123,6 +123,10 @@ class Peinture
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="{{ value }} n'est pas un nombre valide"
+     * )
      */
     private $profondeur;
 
