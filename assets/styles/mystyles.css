@@ -46,12 +46,13 @@ body {
 }
 
 /* cloud image height */
-.cloudimage-inner-box {
+.cloudimage-360-inner-box {
   display: flex;
   justify-content: center;
 }
 
-.cloudimage-inner-box canvas {
+.cloudimage-360-inner-box canvas {
   max-height: 90vh;
   width: auto !important;
+  max-width: 600px;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ImagesRepository;
 use App\Repository\PeintureRepository;
 use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -33,13 +34,15 @@ class HomeController extends AbstractController
     /**
      * @Route("/sculpture/{slug}", name="show")
      */
-    public function show(string $slug, PeintureRepository $peintureRepository)
+    public function show(string $slug, PeintureRepository $peintureRepository, ImagesRepository $imagesRepository)
     {
         $sculpture = $peintureRepository->findOneBy(['slug' => $slug]);
 
         return $this->render('home/show.html.twig', [
             'w' => $sculpture,
-            'nbimages' => count(glob(getcwd() . '/img/' . $sculpture->getFile() . "*.jpg")),
+            //Les images ne son tpas liées dans la database pour le moment....
+            //'nbimages' => $sculpture->getImages()->count(),
+            'nbimages' => count(glob($this->getParameter('upload_directory') . $sculpture->getFile() . "*.jpg")),
             'auteur' => $this->auteur
         ]);
     }

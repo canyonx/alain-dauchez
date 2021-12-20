@@ -2,15 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Upload;
-use App\Form\NewPasswordType;
-use App\Form\UploadType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProfilController extends AbstractController
@@ -26,44 +22,48 @@ class ProfilController extends AbstractController
      * @Route("/admin/profil/edit", name="profil_edit")
      */
     public function edit(
-        UserRepository $userRepository,
         Request $request,
         EntityManagerInterface $em
     ) {
 
-        $user = $this->auteur;
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $this->auteur);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPrenom($form['prenom']->getData())
+            $this->auteur->setPrenom($form['prenom']->getData())
                 ->setNom($form['nom']->getData())
+                ->setEmail($form['email']->getData())
                 ->setTelephone($form['telephone']->getData())
+                ->setSousTitre($form['sousTitre']->getData())
                 ->setAPropos($form['aPropos']->getData());
+
 
             // on récupère le fichier avatar
             if ($form['avatar']->getData()) {
+
                 $file = $form['avatar']->getData();
                 // suppression ancien avatar
-                @unlink($this->getParameter('upload_directory') . '/avatar/' . $user->getAvatar());
+                @unlink($this->getParameter('upload_directory') . '/avatar/' . $this->auteur->getAvatar());
                 // Nouveau nom
                 $fileName = "avatar" . '.' . $file->guessExtension();
                 $file->move($this->getParameter('upload_directory') . '/avatar', $fileName);
-                $user->setAvatar($fileName);
+                $this->auteur->setAvatar($fileName);
             }
 
             // on récupère le fichier imageBg
             if ($form['imageBg']->getData()) {
                 $file = $form['imageBg']->getData();
                 // suppression ancien avatar
-                @unlink($this->getParameter('upload_directory') . '/background/' . $user->getImageBg());
+                @unlink($this->getParameter('upload_directory') . '/background/' . $this->auteur->getImageBg());
                 // Nouveau nom
                 $fileName = "imageBg" . '.' . $file->guessExtension();
                 $file->move($this->getParameter('upload_directory') . '/background', $fileName);
-                $user->setImageBg($fileName);
+                $this->auteur->setImageBg($fileName);
+                clearstatcache();
             }
 
             $em->flush();
+
 
             return $this->redirectToRoute('home');
         }

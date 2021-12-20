@@ -31,10 +31,8 @@ class ProductController extends AbstractController
     public function list(
         PeintureRepository $peintureRepository
     ) {
-        $product = $peintureRepository->findBy([], ['dateRealisation' => 'DESC']);
-
         return $this->render('product/list.html.twig', [
-            'product' => $product,
+            'product' => $peintureRepository->findBy([], ['dateRealisation' => 'DESC']),
             'auteur' => $this->auteur
         ]);
     }
@@ -69,8 +67,6 @@ class ProductController extends AbstractController
 
             // si il y a des images transmises
             if ($form['images']->getData()) {
-                //on crée le dossier
-                //@mkdir(getcwd().$product)
                 // On récupère les images transmises
                 $images = $form['images']->getData();
 
