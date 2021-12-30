@@ -137,8 +137,8 @@ class ProductController extends AbstractController
                 ->setEnVente($form['enVente']->getData())
                 ->setPortfolio(true)
                 ->setDescription($form['description']->getData())
-                ->setSlug(strtolower($slugger->slug($product->getNom())))
-                ->setFile($product->getSlug() . '/')
+                //->setSlug(strtolower($slugger->slug($product->getNom())))
+                //->setFile($product->getSlug() . '/')
                 ->setUser($this->auteur);
 
             // si il y a des images transmises

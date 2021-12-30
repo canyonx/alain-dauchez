@@ -45,8 +45,8 @@ class ProfilController extends AbstractController
                 // suppression ancien avatar
                 @unlink($this->getParameter('upload_directory') . '/avatar/' . $this->auteur->getAvatar());
                 // Nouveau nom
-                $fileName = "avatar" . '.' . $file->guessExtension();
-                $file->move($this->getParameter('upload_directory') . '/avatar', $fileName);
+                $fileName = uniqid() . '.' . $file->guessExtension();
+                $file->move($this->getParameter('upload_directory') . '/avatar/', $fileName);
                 $this->auteur->setAvatar($fileName);
             }
 
@@ -56,8 +56,8 @@ class ProfilController extends AbstractController
                 // suppression ancien avatar
                 @unlink($this->getParameter('upload_directory') . '/background/' . $this->auteur->getImageBg());
                 // Nouveau nom
-                $fileName = "imageBg" . '.' . $file->guessExtension();
-                $file->move($this->getParameter('upload_directory') . '/background', $fileName);
+                $fileName = uniqid() . '.' . $file->guessExtension();
+                $file->move($this->getParameter('upload_directory') . '/background/', $fileName);
                 $this->auteur->setImageBg($fileName);
                 clearstatcache();
             }
