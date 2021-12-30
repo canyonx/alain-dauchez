@@ -10,6 +10,6 @@ $family-sans-serif: "Ubuntu", "Helvetica Neue", sans-serif;
   }
 
 @import "./mystyles.css";
-@import "../bulma/bulma.sass";
+@import "../../node_modules/bulma/bulma.sass";
 @import "../font-awesome/scss/font-awesome.scss";
 //@import "~bootstrap/scss/bootstrap";
