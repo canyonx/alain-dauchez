@@ -6,18 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UploadImageService extends AbstractController
 {
-    public function singleImage($data)
+    public function singleImage($image, $name)
     {
-        // suppression ancien avatar
-        //@unlink($this->getParameter('upload_directory') . '/' . $name . '/' . $this->user->getAvatar());
-
-        // Nouveau nom
-        //dd($file->getData()->getClientOriginalName());
-        $name = $data->getName();
-        dd($name);
-        $fileName = $name . '.' . $data->guessExtension();
-        // Déplacement 
-        $data->move($this->getParameter('upload_directory') . '/' . $name, $fileName);
+        $file = $image;
+        // nouveau nom unique
+        $fileName = uniqid() . '.' . $file->guessExtension();
+        // deplacement dans public/img/ $name / $fileName
+        $file->move($this->getParameter('upload_directory') . $name . '/', $fileName);
 
         return $fileName;
     }

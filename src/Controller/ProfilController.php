@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Controller\Upload\UploadImageService;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,7 +24,8 @@ class ProfilController extends AbstractController
      */
     public function edit(
         Request $request,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        UploadImageService $uploadImageService
     ) {
 
         $form = $this->createForm(UserType::class, $this->auteur);
@@ -37,30 +39,27 @@ class ProfilController extends AbstractController
                 ->setSousTitre($form['sousTitre']->getData())
                 ->setAPropos($form['aPropos']->getData());
 
+            // on récupère le fichier background
+            if ($form['background']->getData()) {
+                // suppression des images du dossier
+                @array_map('unlink', glob($this->getParameter('upload_directory') . 'background' . "/*.jpg"));
+                // upload de l'image
+                $fileName = $uploadImageService->singleImage($form['background']->getData(), 'background');
+                // enregistrement du nom dans la bdd
+                $this->auteur->setBackground($fileName);
+            }
 
             // on récupère le fichier avatar
             if ($form['avatar']->getData()) {
-
-                $file = $form['avatar']->getData();
-                // suppression ancien avatar
-                @unlink($this->getParameter('upload_directory') . '/avatar/' . $this->auteur->getAvatar());
-                // Nouveau nom
-                $fileName = uniqid() . '.' . $file->guessExtension();
-                $file->move($this->getParameter('upload_directory') . '/avatar/', $fileName);
+                // suppression des images du dossier
+                @array_map('unlink', glob($this->getParameter('upload_directory') . 'avatar' . "/*.jpg"));
+                // upload de l'image
+                $fileName = $uploadImageService->singleImage($form['avatar']->getData(), 'avatar');
+                // enregistrement du nom dans la bdd
                 $this->auteur->setAvatar($fileName);
             }
 
-            // on récupère le fichier imageBg
-            if ($form['imageBg']->getData()) {
-                $file = $form['imageBg']->getData();
-                // suppression ancien avatar
-                @unlink($this->getParameter('upload_directory') . '/background/' . $this->auteur->getImageBg());
-                // Nouveau nom
-                $fileName = uniqid() . '.' . $file->guessExtension();
-                $file->move($this->getParameter('upload_directory') . '/background/', $fileName);
-                $this->auteur->setImageBg($fileName);
-                clearstatcache();
-            }
+            clearstatcache();
 
             $em->flush();
 

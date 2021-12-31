@@ -87,7 +87,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $imageBg;
+    private $background;
 
     public function __construct()
     {
@@ -316,14 +316,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getImageBg()
+    public function getBackground()
     {
-        return $this->imageBg;
+        return $this->background;
     }
 
-    public function setImageBg($imageBg)
+    public function setBackground($background)
     {
-        $this->imageBg = $imageBg;
+        $this->background = $background;
 
         return $this;
     }

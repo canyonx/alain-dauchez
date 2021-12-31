@@ -22,7 +22,7 @@
 		{% endblock %}
 		<style>
 			.hero.is-dark {
-				background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("{{ asset('img/background/' ~ auteur.imageBg) }}") no-repeat center center fixed;
+				background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("{{ asset('img/background/' ~ auteur.background) }}") no-repeat center center fixed;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
@@ -30,7 +30,7 @@
 			}
 		</style>
 	</head>
-	<body class="has-background-pink"> {% block body %}{% endblock %}
+	<body class="has-background-black"> {% block body %}{% endblock %}
 
 		{% include "shared/_footer.html.twig" %}
 	</body>
