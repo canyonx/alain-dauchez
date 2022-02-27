@@ -73,7 +73,7 @@ class Peinture
     private $createdAt;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      * @Assert\NotBlank(
      *      message="La description ne peut pas être nulle"
      * )

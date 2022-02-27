@@ -81,7 +81,8 @@ class PeintureType extends AbstractType
                 'label' => 'Description',
                 'attr' => [
                     'class' => 'textarea'
-                ]
+                ],
+                'required' => false,
             ])
             ->add('images', FileType::class, [
                 'label' => 'Photos 360',
