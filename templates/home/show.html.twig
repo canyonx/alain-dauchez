@@ -24,7 +24,7 @@
 			<div class=" has-text-centered">
 				<h1 class="title has-text-light pt-6">{{ w.nom }}</h1>
 				<hr>
-				{% if w.description %}
+				{% if w.description | length > 10 %}
 					<div class="is-max-desktop">
 						<p class="py-6 is-size-5">{{ w.description | nl2br}}</p>
 					</div>

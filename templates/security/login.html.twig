@@ -15,18 +15,9 @@
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
-		<style>
-			.hero {
-				background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("{{ asset('img/background/' ~ auteur.backgound) }}") no-repeat center center fixed;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-			}
-		</style>
 	</head>
 	<body>
-		<section class="hero is-dark is-fullheight">
+		<section class="hero is-black is-fullheight">
 			<div class="hero-body">
 				<div class="container">
 					<div class="columns is-vcentered">
